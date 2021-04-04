@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Presidency University Job Fair
+        </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+
+        <script>
+            function validation(){
+                var user = document.getElementById('user').value;
+			    var age = document.getElementById('age').value;
+			    var mobileNumber = document.getElementById('mobileNumber').value;
+			    var emails = document.getElementById('emails').value;
+
+            //-------------------First Name-----------------------//
+            if(user == ""){
+				document.getElementById('username').innerHTML =" ** Please fill the username field";
+				return false;
+			}
+            if((user.length <= 2) || (user.length > 20)) {
+                    document.getElementById('username').innerHTML =" ** Username length must be between 2 and 20";
+                    return false;	
+            }
+            if(!isNaN(user)){
+                    document.getElementById('username').innerHTML =" ** only characters are allowed";
+                    return false;
+            }
+
+
+            //-------------------LAST Name-----------------------//
+            if(user == ""){
+				document.getElementById('username').innerHTML =" ** Please fill the username field";
+				return false;
+			}
+            if((user.length <= 2) || (user.length > 20)) {
+                    document.getElementById('username').innerHTML =" ** Username length must be between 2 and 20";
+                    return false;	
+            }
+            if(!isNaN(user)){
+                    document.getElementById('username').innerHTML =" ** only characters are allowed";
+                    return false;
+            }
+
+
+            //-------------------Age-----------------------//
+            if(age == ""){
+				document.getElementById('ages').innerHTML =" ** Please fill the age field";
+				return false;
+			}
+            if(age.length!=2){
+				document.getElementById('ages').innerHTML =" ** Age must be 2 digits only";
+				return false;
+			}
+            if(isNaN(age)){
+                    document.getElementById('ages').innerHTML =" ** only Numbers are allowed";
+                    return false;
+            }
+
+            //-------------------Email-----------------------//
+            if(emails == ""){
+				document.getElementById('emailids').innerHTML =" ** Please fill the email idx` field";
+				return false;
+			}
+			if(emails.indexOf('@') <= 0 ){
+				document.getElementById('emailids').innerHTML =" ** @ Invalid Position";
+				return false;
+			}
+
+			if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+				document.getElementById('emailids').innerHTML =" ** . Invalid Position";
+				return false;
+			}
+
+            //-------------------Mobile No-----------------------//
+            if(mobileNumber == ""){
+				document.getElementById('mobileno').innerHTML =" ** Please fill the mobile NUmber field";
+				return false;
+			}
+			if(isNaN(mobileNumber)){
+				document.getElementById('mobileno').innerHTML =" ** user must write digits only not characters and btwn 0-9";
+				return false;
+			}
+			if(mobileNumber.length!=10){
+				document.getElementById('mobileno').innerHTML =" ** Mobile Number must be 10 digits only";
+				return false;
+			}
+
+            }
+            
+            //---------------------------Specilization and Registration----------------------------------------//
+    function valiForm(){
+    var x = document.forms["myForm"]["branch"].value;
+    if (x== "" ){
+      alert("Please select branch");
+      return false;
+    }
+    return true;
+  }         
+  function validateForm() 
+  {
+    var x = document.forms["myForm"]["datemax"].value;
+    if (x>'2022-01-01' && x<'2022-12-31') {
+      alert("Successful Registrated");
+      return false;
+    }
+    else if(x!='2022-01-01' && x!='2022-12-31')
+    {
+      alert('Not Registered');
+    }
+    else{
+    return true;
+    }
+  }
+  function ValidateForm(form)
+  {
+    ErrorText= "";
+    if ( ( form.skill[0].checked == false ) && ( form.skill[1].checked == false ) && ( form.skill[2].checked == false ) && ( form.skill[3].checked == false ) && ( form.skill[4].checked == false )  )
+    {
+        alert ( "Please choose atleast one skill" );
+        return false;
+    }
+    else if(ErrorText= "")
+     { 
+       
+       form.submit() 
+       alert(' NOT Successfull Registration');
+     }
+  }
+            
+
+        </script>
+        <style>
+            /* The container */
+            .container {
+              display: block;
+              position: relative;
+              padding-left: 35px;
+              margin-bottom: 12px;
+              cursor: pointer;
+              font-size: 18px;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+            }
+            
+            /* Hide the browser's default radio button */
+            .container input {
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+            }
+            
+            /* Create a custom radio button */
+            .checkmark {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 25px;
+              width: 25px;
+              background-color: #eee;
+              border-radius: 50%;
+            }
+            
+            /* On mouse-over, add a grey background color */
+            .container:hover input ~ .checkmark {
+              background-color: #ccc;
+            }
+            
+            /* When the radio button is checked, add a blue background */
+            .container input:checked ~ .checkmark {
+              background-color: #F35252;
+            }
+            
+            /* Create the indicator (the dot/circle - hidden when not checked) */
+            .checkmark:after {
+              content: "";
+              position: absolute;
+              display: none;
+            }
+            
+            /* Show the indicator (dot/circle) when checked */
+            .container input:checked ~ .checkmark:after {
+              display: block;
+            }
+            
+            /* Style the indicator (dot/circle) */
+            .container .checkmark:after {
+                 top: 9px;
+                left: 9px;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: white;
+            }
+            .button {
+  background-color: #F35252;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 5px 10px 8px rgb(255, 78, 78)
+}
+
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.dropbtn {
+  background-color: #F35252;
+  border-radius: 25px;
+  padding: 22px;
+  width: 177px;
+  height: 50px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 5px 10px 8px rgb(255, 78, 78);
+}
+
+.box {
+        border-radius: 5px;
+        background-color: #e0d7d7;
+        padding: 20px;
+      }
+
+            </style>
+    </head>
+
+    <body>
+      <h1> <img src="presi.png" height="150px" width="1150px" style="margin-left: -10px;padding-right: 0px;"> </h1> 
+      <div class="container-contact100">
+            <div class="wrap-contact100">
+                <form  onsumbit="validation()" onsubmit="ValidateForm()" onsubmit="valiForm()"   method="post" id="myForm">
+                <div class="box">
+                  <h1 align="center">STUDENT INFORMATION</h1>
+                  <br>
+                <div class="wrap-input100" >
+                        <input class="input100" type="text" id="name" name="name" placeholder="Full Name">
+                        <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="text" id="name" name="name" placeholder="Last Name">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100">
+                    <input class="input100" type="email" id="email" name="email" placeholder="Email">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 ">
+                    <input class="input100" type="tel"  id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" title="only 10 digit phone number only">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <label><font="grey"><b>Gender:<b></font></label><br><br>
+                    <label class="container">Female
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">Male
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                <br>
+                <div class="wrap-input100">
+                    <input class="input100" type="text" id="age" name="age" required placeholder="Age" >
+                    <span class="focus-input100"></span>
+                </div>
+
+            <label>Address:</label>
+            <br><br>
+            <div class="wrap-input100">
+                <input class="input100" type="text" id="address" name="address" placeholder="Enter your home address">
+                <span class="focus-input100"></span>
+            </div>
+            </div>
+            <br><br>
+            <div class="box">
+              <h1 align="center">UPLOAD SECTION</h1>
+              <br>
+
+            <div class="button button2">
+            <label for="photo">Upload Photo:</label>
+            <input  type="file" id="photo" name="photo" required>
+            </div>
+            <br><br>
+            <div class="button button2">
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" name="resume" required>
+            </div>
+            <br><br>
+            <div class="button button2">
+            <label for="sig">Upload Signature:</label>
+            <input type="file" id="sig" name="sig" required>
+            </div>
+        </div>
+       
+            
+            
+
+        <br><br>
+        <div class="box">
+          <h1 align="center">MARKS SECTION</h1>
+          <br><br>
+        Enter your marks/Grade<br><br>
+
+        <label for="10th">10th/HIGH marks and Board:</label><br><br>
+        <select class="dropbtn" id="board">
+                <option value="0"selected>Select your Board</option>
+                <option value="1">CBSE</option>
+                <option value="2" >SSLC</option>
+                <option value="3">ICSE</option>
+                <option value="3">Other</option>
+        </select>
+        <input type="text:digit" id="10th" name="10th" placeholder="enter per/grade" maxlength="2"  required><br><br>
+        <br>
+        <label for="12th">12th/2PUC marks and Board:</label><br><br>
+        <select class="dropbtn" id="board">
+            <option value="0"selected>Select your Board</option>
+            <option value="1">CBSE</option>
+            <option value="2" >PUC</option>
+            <option value="3">ICSE</option>
+            <option value="3">Other</option>
+        </select>
+        <input type="text:digit" id="12th" name="12th" placeholder="enter per/grade" maxlength="2" required><br><br>
+        <br>
+        <label for="UG">UG/Degree marks and Board:</label><br><br>
+        <select class="dropbtn"  id="board">
+            <option value="0"selected>Select your Board</option>
+            <option value="1">VTU</option>
+            <option value="2" >DU(Delhi University)</option>
+            <option value="3">PU(Prei University)</option>
+            <option value="3">Other</option>
+        </select>
+        <input type="text:digit" id="UG" name="UG" placeholder="enter per/grade" maxlength="2" required><br><br><br>
+      </div>
+
+
+      <br><br>
+      <div class="box">
+        <h1 align="center">SKILL SECTION</h1>
+        <br><br>
+        <label>Select your Specialization branch</label>
+        <select class="dropbtn" id="branch" name="branch" >
+            <option value="" name="branches" id="branch">None</option>
+            <option value="cse" id="branch" name="branch">CSE</option>
+            <option value="bran" id="branch" name="branch">IT</option>
+            <option value="branc" id="branch" name="branch">ECE</option>
+            <option value="bra" id="branch" name="branch">EEE</option>
+            <option value="br" id="branch" name="branch">CIVIL</option>
+            <option value="brah" id="branch" name="branch">MECHANICAL</option>
+        </select><br><br><br>
+
+
+        <label>Date of Birth:</label>
+    <input class="dropbtn" type="date" id="dob" name="dob"><br><br><br>
+
+    <label>Year of Passing:</label>
+    <input class="dropbtn" type="date" id="datemax" name="datemax" min="2022-01-01" max="2022-12-31"><br><br>
+    <br><br>
+    <label>Technical skills section:</label><br><br>
+    <input  type="checkbox" id="skill1" name="skill" value="C"><label  for="skill1">C</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" id="skill2" name="skill" value="C++"><label for="skill2">C++</label><br> 
+    <input type="checkbox" id="skill3" name="skill" value="java"><label for="skill3">Java</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;<input type="checkbox" id="skill4" name="skill" value="SQL"><label for="skill4">SQL</label><br>
+    <input type="checkbox" id="skill5" name="skill" value="pyth"><label for="skill5">Python</label>&nbsp;
+    <input type="checkbox" id="skill6" name="skill" value="cnn"><label for="skill6">Networking</label><br>
+
+    </div>
+
+                    <input class="contact100-form-btn" type="submit" style="margin-top: 20px;margin-left: 0px;" onclick="ValidateForm(this.form); onclick=validation(this.form); onsubmit=valiForm(this.form)"> <input class="contact100-form-btn" style="margin-top: 20px;margin-left: 0px;" type="reset" onclick="Reset()">
+                </form><br><br>
+            </div>
+      </div>
+    </div>
+    <footer>&copy; Copyright VARUN.VP</footer>
+    </body>
+</html>
